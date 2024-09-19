@@ -1,0 +1,2 @@
+[console_scripts]
+yahpdf = yahpdf.pdf_tool:main
