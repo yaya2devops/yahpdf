@@ -1,0 +1,15 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Project-specific output files
+wordcloud.png
+extracted_text.txt
+
+# Virtual environment
+venv/

@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: yahpdf
-Version: 0.1.3
+Version: 0.2.0
 Summary: A CLI tool for analyzing PDF files
 Home-page: https://github.com/yaya2devops/yahpdf
 Author: Yahya Abulhaj
@@ -14,6 +14,7 @@ License-File: LICENSE
 Requires-Dist: PyPDF2
 Requires-Dist: matplotlib
 Requires-Dist: wordcloud
+Requires-Dist: requests
 
 
 

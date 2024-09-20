@@ -33,3 +33,11 @@ Now, it's already up and running, which is quite amusing!
 - Local development is taking place in the local directory.
 
 [Get started](yahpdf/README.md) with the tool immediately!
+
+
+#### World Wide Web 
+You can now apply the tool to PDFs from the web.
+To do so, please run:
+```sh
+yahpdf https://your-file-url.pdf [OPTIONS]
+```

@@ -4,14 +4,33 @@ import re
 from collections import Counter
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud
+import tempfile
+import requests
+import os
+
+def download_pdf(url):
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as temp_file:
+        response = requests.get(url)
+        temp_file.write(response.content)
+        return temp_file.name
 
 def extract_text(pdf_path):
-    with open(pdf_path, 'rb') as file:
-        reader = PyPDF2.PdfReader(file)
-        text = ""
-        for page in reader.pages:
-            text += page.extract_text()
-    return text
+    if pdf_path.startswith('http://') or pdf_path.startswith('https://'):
+        temp_file_path = download_pdf(pdf_path)
+        with open(temp_file_path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text()
+        os.unlink(temp_file_path)
+        return text
+    else:
+        with open(pdf_path, 'rb') as file:
+            reader = PyPDF2.PdfReader(file)
+            text = ""
+            for page in reader.pages:
+                text += page.extract_text()
+        return text
 
 def simple_tokenize(text):
     return re.findall(r'\b\w+\b', text.lower())
@@ -43,7 +62,7 @@ def extract_emails(text):
 
 def main():
     parser = argparse.ArgumentParser(description="PDF CLI Tool")
-    parser.add_argument("pdf_path", help="Path to the PDF file")
+    parser.add_argument("pdf_path", help="Path to the PDF file or URL")
     parser.add_argument("--word-count", action="store_true", help="Get word count")
     parser.add_argument("--unique-words", action="store_true", help="Get unique word count")
     parser.add_argument("--common-words", type=int, metavar="N", help="Get N most common words")
@@ -60,6 +79,9 @@ def main():
         return
     except PyPDF2.errors.PdfReadError:
         print(f"Error: '{args.pdf_path}' is not a valid PDF file or is encrypted.")
+        return
+    except requests.exceptions.RequestException:
+        print(f"Error: Unable to download the PDF from '{args.pdf_path}'.")
         return
 
     if args.word_count:
