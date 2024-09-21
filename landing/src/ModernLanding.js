@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, Clipboard, Check, Terminal } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clipboard, Check, Terminal, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 
 const cliOptions = [
   {
@@ -90,6 +90,8 @@ const OptionCard = ({ benefit, command, icon }) => {
 
 export default function ModernLanding() {
   const [currentOptionIndex, setCurrentOptionIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(false);
   const videoRef = useRef(null);
 
   const nextOption = () => {
@@ -100,10 +102,29 @@ export default function ModernLanding() {
     setCurrentOptionIndex((prevIndex) => (prevIndex - 1 + cliOptions.length) % cliOptions.length);
   };
 
+  const togglePlayPause = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (videoRef.current) {
         videoRef.current.play().catch(error => console.log("Autoplay was prevented:", error));
+        setIsPlaying(true);
       }
     }, 3000);
 
@@ -131,18 +152,33 @@ export default function ModernLanding() {
           </div>
 
           <div className="md:w-1/2 flex justify-center">
-            <div className="relative w-[300px] h-[600px] bg-gray-800 rounded-[40px] overflow-hidden shadow-xl">
+            <div className="relative w-[300px] h-[600px] bg-gray-800 rounded-[40px] overflow-hidden shadow-xl" style={{boxShadow: '0 10px 25px rgba(0, 0, 0, 0.5)'}}>
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-[30px] bg-black rounded-b-[20px]"></div>
-              <video 
-                ref={videoRef}
-                className="w-full h-full object-cover"
-                controls
-                poster="/api/placeholder/300/600"
-                muted
-              >
-                <source src="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.mov" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              <div className="relative w-full h-full">
+                <video 
+                  ref={videoRef}
+                  className="w-full h-full object-cover"
+                  poster="/api/placeholder/300/600"
+                  loop
+                >
+                  <source src="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center space-x-4">
+                  <button 
+                    onClick={togglePlayPause}
+                    className="bg-white bg-opacity-50 hover:bg-opacity-75 text-black p-4 rounded-full transition duration-300"
+                  >
+                    {isPlaying ? <Pause size={32} /> : <Play size={32} />}
+                  </button>
+                  <button 
+                    onClick={toggleMute}
+                    className="bg-white bg-opacity-50 hover:bg-opacity-75 text-black p-4 rounded-full transition duration-300"
+                  >
+                    {isMuted ? <VolumeX size={32} /> : <Volume2 size={32} />}
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
