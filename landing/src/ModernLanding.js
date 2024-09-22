@@ -161,7 +161,7 @@ export default function ModernLanding() {
                   poster="/api/placeholder/300/600"
                   loop
                 >
-                  <source src="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.mp4" type="video/mp4" />
+                  <source src="https://d112cead1p2h4q.cloudfront.net/yahpdf.1.1.0.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center justify-center space-x-4">
