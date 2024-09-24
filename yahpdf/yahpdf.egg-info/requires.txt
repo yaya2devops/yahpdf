@@ -2,3 +2,6 @@ PyPDF2
 matplotlib
 wordcloud
 requests
+nltk
+tqdm
+textblob
