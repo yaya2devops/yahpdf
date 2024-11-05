@@ -517,7 +517,7 @@ export default function ModernLanding() {
             <ul className="space-y-2">
               <li><a href="https://docs.python.org/3" className="hover:text-white transition-colors">Python</a></li>
               <li><a href="https://pypi.org/project/yahpdf" className="hover:text-white transition-colors">yahPDF</a></li>
-              <li><a href="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.1.1.0.mp4" className="hover:text-white transition-colors">Tuto</a></li>
+              <li><a href="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.mp4" className="hover:text-white transition-colors">Tuto</a></li>
             </ul>
           </div>
           <div>
@@ -533,6 +533,8 @@ export default function ModernLanding() {
             <h3 className="font-bold mb-2">Legal</h3>
             <ul className="space-y-2">
               <li><a href="https://docs.google.com/document/d/1mr9x6DwYphniMpnTDitH6E9htdwG8dJI0Ncd9FFlqoM/edit?usp=sharing" className="hover:text-white transition-colors">Code of Conduct</a></li>
+              <li><a href="https://github.com/yaya2devops/yahpdf/blob/main/yahpdf/LICENSE" className="hover:text-white transition-colors">LICENSE</a></li>
+              <li><a href="https://create.ya-ya.tech/kingdom/yahPDF-Trademark-Policy-2024-11-05.docx.pdf" className="hover:text-white transition-colors">Trademark Policy</a></li>
             </ul>
           </div>
         </div>
