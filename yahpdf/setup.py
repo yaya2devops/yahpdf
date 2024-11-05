@@ -6,7 +6,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="yahpdf",
-    version="1.1.0",
+    version="3.1.0",  
     author="Yahya Abulhaj",
     author_email="dev@yahya-abulhaj.dev",
     description="A CLI tool for analyzing PDF files",
@@ -21,7 +21,8 @@ setup(
         "requests",
         "nltk",
         "tqdm",
-        "textblob"
+        "textblob",
+        "colorama"
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
