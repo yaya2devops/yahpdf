@@ -388,6 +388,71 @@ export default function ModernLanding() {
           </div>
         </section>
 
+        <div className="mt-16 max-w-3xl mx-auto">
+          <div className="relative">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-700"></div>
+            </div>
+            <div className="relative flex justify-center">
+              <span className="px-4 bg-gray-800 text-lg font-medium text-gray-400">What To Do - Post Walkthrough</span>
+            </div>
+          </div>
+
+          <div className="mt-8 bg-gray-800/50 rounded-xl p-8 shadow-lg border border-gray-700">
+            <div className="space-y-6 text-gray-300">
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  Hey fam! I'm pretty excited to give you a quick demo of <a href="https://pypi.org/project/yahpdf/" className="text-blue-400 hover:text-blue-300 transition-colors">our PDF driven tool</a>, so you can check it out and try it for yourself.
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  To start, after you install the tool using the initial command, run it, and you should see a list of available flags. This is a good indication that everything installed correctly.
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  Next, bring in any PDF file you'd like to work with. For this demo, I'm using a PDF titled '<a href="https://create.ya-ya.tech/A-Missionary.pdf" className="text-blue-400 hover:text-blue-300 transition-colors">A Missionary's Guide</a>.' I'll clear out any previous files to keep things clean.
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  Now, here's the PDF we're working with. Let's dive in and see how to manipulate it. First, I'll run a command to add some tabs, and then we'll use a double-dash flag to extract the text content.
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  This process will generate a text file containing everything from the PDF. Let's open it up – you'll see that all the PDF content is now right here in plain text. For example, you can see the key phrases that match exactly with those in the original file.
+                </p>
+              </div>
+
+              <div className="flex items-start space-x-4">
+                <div className="min-w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold">⦿</div>
+                <p className="leading-relaxed pt-1">
+                  And that's just one of the tool's capabilities! I hope you'll enjoy exploring it. Go ahead and give it a try! Just make sure you have <a href="https://pip.pypa.io/en/stable/installation/" className="text-blue-400 hover:text-blue-300 transition-colors">pip installed</a>, as you'll need it to get the package.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-gray-700/50">
+              <p className="text-gray-400 text-sm">
+                📹 Watch the real with author's voice narration in the 
+                <a href="https://yahpdf.s3.eu-north-1.amazonaws.com/yahpdf.mp4" className="text-blue-400 hover:text-blue-300 transition-colors mx-1">original video</a>
+                (also available in footer under "Tuto").
+              </p>
+            </div>
+          </div>
+        </div>
+
         <section id="features" className="mt-24">
           <h2 className="text-4xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 text-center">Powerful Features</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
